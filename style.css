@@ -96,7 +96,7 @@ body {
 }
 
 .title{
-  font-size: 80vw;
+  font-size: 8vw;
   font-weight: bold;
   background: linear-gradient(to right, #fc354c, #0abfbc);
   -webkit-background-clip: text;
@@ -105,4 +105,3 @@ body {
   text-transform: uppercase;
   line-height: .90;
 }
-
