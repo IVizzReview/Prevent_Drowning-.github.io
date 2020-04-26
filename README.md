@@ -1,2 +1,2 @@
 # Prevent_Drowning-.github.io
-WEBSITE Project For COMPUTER PROGRAMMING 
+WEBSITE Project for COMPUTER PROGRAMMING 
