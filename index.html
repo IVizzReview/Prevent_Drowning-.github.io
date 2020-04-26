@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Prompt&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?lang=ruby&amp;skin=sons-of-obsidian"></script>
+    <title>Prevent Drowning</title>
+</head>
+
+<body>
+    <header>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" href="#home">Prevent Drowning</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#main">Abstract<span class="sr-only"></span></a>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Accessories
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#accessories1">Arduino Nano 3.0 Mini USB</a>
+          <a class="dropdown-item" href="#accessories2">SIM900A</a>
+          <a class="dropdown-item" href="#accessories3">Pressure Transducer Sensor</a>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="#details">Details</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Source Code
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#source1">Arduino Nano 3.0 Mini USB</a>
+          <a class="dropdown-item" href="#source2">SIM900A</a>
+          <a class="dropdown-item" href="#source3">Pressure Transducer Sensor</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#main">Member</a>
+      </li>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+    </header>
+
+<div class="background" id="home">
+    <div class="container">
+    <p class="title">
+      Prevent Drowning
+    </p>
+</div>
+</div>
+
+
+    <div id="main" class="container-fluid" style="overflow-x: hidden;">
+        <div class="row p-0 d-flex justify-content-center mt-5">
+            <div class="col-md-5">
+                <br>
+                <div class="shadow p-4 mb-4 bg-light rounded">
+                <h1>บทคัดย่อ (Abstract)</h1>
+                <p>
+                    เนื่องจากในปัจจุบันปัญหาเด็กจมน้ำนั้นมีอัตราที่เพิ่มขึ้นทุกปี
+                    และเด็กไทยเสียชีวิตจากการจมน้ำสูงเป็นอันดับหนึ่งเมื่อเทียบกับอุบัติเหตุอื่น ๆ
+                    ซึ่งสาเหตุหลักของอุบัติเหตุนี้คือ ผู้ปกครองของเด็กไม่ได้ดูแลเด็กอย่างใกล้ชิด
+                    ทั้งอุปกรณ์ช่วยป้องกันการจมน้ำในปัจจุบันมีขนาดใหญ่และไม่เหมาะสำหรับใส่พกพาไปยังสถานที่อื่น
+                    ทำให้เมื่อเกิดอุบัติเหตุจมน้ำ ผู้ปกครองไม่สามารถเข้าช่วยเหลือเด็กได้ทันท่วงที
+                    ส่งผลให้เด็กมีโอกาสรอดน้อยลง และเสียชีวิตในที่สุด
+                    ผู้พัฒนาจึงได้คิดค้นอุปกรณ์ช่วยป้องกันและเพื่อเพิ่มโอกาสรอดของเด็กจากการจมน้ำ
+                    โดยอุปกรณ์นี้จะช่วยแจ้งเตือนผู้ปกครองของเด็ก
+                    ทันทีที่เมื่ออุปกรณ์ตรวจวัดแรงดันน้ำรอบตัวของเด็กอยู่ในระดับที่สูงผิดปกติ
+                    อุปกรณ์จะทำการส่งข้อความแจ้งเตือนไปยังโทรศัพท์ของผู้ปกครอง
+                    ทำให้ผู้ปกครองรู้ตัวและสามารถเข้าช่วยเหลือเด็กได้ทันท่วงที
+                </p>
+            </div>
+            </div>
+
+            <div class="col-md-4" id="main">
+                <br>
+                <div class="shadow p-4 mb-4 bg-light rounded">
+                <h1>สมาชิก (Member)</h1>
+                <p>
+                    62070003 นายกฤติน ช่วยละแม<br>
+                    <button class="btn bt1" onclick="window.location.href = 'https://www.facebook.com/krittin.chuaylamae';">Facebook</button>
+                    <button class="btn" onclick="window.location.href = 'https://github.com/aff717616';">github</button>
+                    <br>
+                    62070019 นางสาวเกษราภรณ์ เดชบุญ<br>
+                    <button class="btn bt1" onclick="window.location.href = 'https://www.facebook.com/ketsaraporn.viewii';">Facebook</button>
+                    <button class="btn" onclick="window.location.href = 'https://github.com/IVizzReview';">github</button>
+                    <br>
+                    62070055 นายฐิติพล บุญลำพันธ์<br>
+                    <button class="btn bt1" onclick="window.location.href = 'https://www.facebook.com/profile.php?id=100006703847106';">Facebook</button>
+                    <button class="btn" onclick="window.location.href = 'https://github.com/NeoDarkfame';">github</button>
+                    <br>
+                    62070056 นายณชนน บุญสนอง<br>
+                    <button class="btn bt1" onclick="window.location.href = 'https://www.facebook.com/bankboonsanong';">Facebook</button>
+                    <button class="btn" onclick="window.location.href = 'https://github.com/Bot-Bank100';">github</button>
+                </p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="bg-1">
+        <div class="row d-flex justify-content-center mt-1" id="accessories1">
+            <div class="col-11 d-flex justify-content-center">
+                <img class="equipment" src="img/arduino nano.png" style="height: 400px; width: 400px;">
+            </div>
+            <div class="col-md-5">
+                <h1>Arduino Nano 3.0 Mini USB</h1>
+                <p>
+                    Arduino Nano 3.0 เหมือน Arduino Nano 3.0 รุ่นเดิมทุกอย่าง แต่ราคาถูกกว่า ต่างกันที่ใช้ชิฟ
+                    CH340G เป็นชิฟ USB Driver แทนรุ่น Arduino Nano 3.0 เดิม สามารถใช้ได้กับ Windows XP, Windows
+                    7, Windows 8, Windows 10 ทั้ง 32/64bit, Linux, Mac OS ได้ และมีราคาถูกลง
+                </p>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center mt-1" id="accessories2">
+            <div class="col-11 d-flex justify-content-center">
+                <img class="equipment" src="img/sim900a.png" style="height: 400px; width: 400px;">
+            </div>
+            <div class="col-md-5">
+                <h1>SIM900A</h1>
+                <p>
+                    SIM900A GSM/GPRS Module โมดูล SIM900 เป็นโมดูลซิมการ์ดที่สามารถใส่ซิมการ์ด
+                    มือถือ ควบคุมการ โทรเข้า โทรออก รับสาย วางสาย ส่งsms ได้ ใช้ไฟเลี้ยง 5V 2A<br>
+                    ขนาด: 5×5cm<br>
+                    อุณหภูมิในการทำงาน: -40°C ~ 85°C<br>
+                    น้ำหนัก: 3.4g<br>
+                    ช่วงแรงดันไฟฟ้า: 5V<br>
+                    การใช้พลังงานต่ำ: 1.5mA (sleep mode)
+                </p>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center mt-1" id="accessories3">
+            <div class="col-11 d-flex justify-content-center">
+                <img class="equipment" src="img/water pressure.png" style="height: 400px; width: 400px;">
+            </div>
+            <div class="col-md-5">
+                <h1>Pressure Transducer Sensor</h1>
+                <p>
+                    เซ็นเซอร์ใช้ไฟเลี้ยง 5V ให้สัญญาณออกมาเป็น analog ใช่้งานง่ายเชื่อมต่อ arduino ได้โดยตรง
+                    ทำจากเหล็กแข็งแรง ตัวเซ็นเซอร์กันน้ำ<br>
+                    สามารถวัดความดันได้: 0-1.6MPa<br>
+                    ผู้ผลิต: DFRobot<br>
+                    อุณหภูมิในการทำงาน: -20°C ~ 85°C<br>
+                    ความดันการดำเนินงาน: 232.06PSI (1600 kPa)<br>
+                    ความดันสูงสุด: 290.08PSI (2000 kPa)
+                </p>
+                <br>
+                <br>
+                <br>
+
+            </div>
+        </div>
+        </div>
+                <br>
+
+        <div id="details">
+            <br>
+            <br>
+            <br>
+            <div class="row d-flex justify-content-center">
+                <div class="col-10 d-flex justify-content-center">
+                <div class="shadow p-4 mb-4 bg-light rounded">
+            <div class="col-md-12">
+                <center>
+                <h1>หลักการทำงาน (Details)</h1>
+                <p>
+                    เราจะใช้เซ็นเซอร์วัดแรงดัน Pressure Transducer Sensor วัดแรงดันว่าความลึกเท่านี้มีแรงดันน้ำประมาณเท่าไหร่ ถ้ามากกว่าที่กำหนดไว้ก็จะทำการส่งข้อความผ่าน SIM900A ไปหาผู้ปกครองเเละนับเวลาอีก 10 วินาที ถ้าหากเเรงดันยังมากกว่าที่กำหนดจะส่งข้อความใหม่อีกรอบ
+                </p>
+                </center>
+
+                <br>
+            </div>
+            </div>
+        </div>
+        </div>
+        <br>
+            <br>
+            <br>
+        <div class="bg-1">
+            <br>
+            <br>
+            <div id="source1">
+            <center>
+                <h1>Source Code</h1>
+                <br>
+            <h3>Arduino Nano 3.0 Mini USB</h3>
+            </center>
+            <br>
+            <div class="row d-flex justify-content-center mt-1">
+                <div class="col-11 d-flex justify-content-center">
+                    <?prettify linenums=1?>
+  <pre class="prettyprint">
+#include &lt;LiquidCrystal_I2C.h&gt;
+#include &lt;SoftwareSerial.h&gt;
+LiquidCrystal_I2C lcd(0x27,16,2);
+SoftwareSerial SIM900A(10,11);// TX|RX
+int hour=12,minute=0,second=0;
+int check=0,recall=0;
+const float OffSet=0.483;
+float V,P;
+void setup() {//Just a setting
+  lcd.begin();
+  Serial.begin(9600);// Setting the baud rate of Serial Monitor (Arduino)
+  SIM900A.begin(9600);// Setting the baud rate of GSM Module
+  lcd.backlight();
+  Serial.println("SIM900A Ready");
+}
+void loop() {
+  V=analogRead(0)*5.00/1024;// Receive values from pressure sensors
+  P=(V-OffSet)*400;// Convert to kilopascal
+  second++;
+  if (second>59){// Just a timer
+    minute++;
+    second=0;
+  }
+  if (minute>59){
+    hour++;
+    minute=0;
+  }
+  if (hour>23){
+    hour=0;
+  }
+  lcd.clear();// Display to LCD screen
+  lcd.print("TIME: ");
+  lcd.print(hour);
+  lcd.print(":");
+  lcd.print(minute);
+  lcd.print(":");
+  lcd.print(second);
+  lcd.setCursor(1,1);
+  lcd.print("WHITEWHALEWATCH");
+  Serial.print(P,1);
+  Serial.println(" KPa");
+  delay(990);
+  if (P>20.0){// Sends a message when the P over 20 kilopascal
+    SendMessage();
+    second++;
+    check=1;
+  }
+  while (check!=0){// Check if the child is still drowned
+    recall++;
+    second++;
+    Serial.println(recall);
+    delay(990);
+    if (recall==10){
+      check=0;
+      recall=0;
+    }
+  }
+}
+
+void SendMessage(){
+  // Fuction used to send messages
+  Serial.println("Sending Message");
+  SIM900A.println("AT+CMGF=1");// Sets the GSM Module in Text Mode
+  delay(200);
+  Serial.println("Set SMS Number");
+  SIM900A.println("AT+CMGS=\"+660917499494\"\r");// Mobile phone number to send message
+  delay(200);
+  Serial.println("Set SMS Content");
+  SIM900A.println("WHITEWHALEWATCH");// Messsage content
+  delay(200);
+  Serial.println("Finish");
+  SIM900A.println((char)26);// ASCII code of CTRL+Z
+  delay(400);
+  Serial.println("Message has been sent");
+}
+</pre>
+                </div>
+            </div>
+        </div>
+        <div id="source2">
+            <br>
+            <br>
+            <br>
+        <center>
+            <h3>SIM900A</h3>
+        </center>
+        <br>
+        <div class="row d-flex justify-content-center mt-1">
+                <div class="col-11 d-flex justify-content-center">
+                    <?prettify linenums=1?>
+  <pre class="prettyprint">
+#include &lt;SoftwareSerial.h&gt;
+SoftwareSerial SIM900A(10,11);
+void setup()
+{
+  SIM900A.begin(9600);// Setting the baud rate of GSM Module
+  Serial.begin(9600);// Setting the baud rate of Serial Monitor (Arduino)
+  Serial.println ("SIM900A Ready");
+  delay(100);
+  Serial.println ("Type s to send message or r to receive message");
+}//Just setup
+void loop()
+{
+  if (Serial.available()>0)
+   switch(Serial.read())// Input text
+  {
+    case 's':// To send message
+      SendMessage();
+      break;
+    case 'r':// To read message
+      RecieveMessage();
+      break;
+  }
+ if (SIM900A.available()>0)
+   Serial.write(SIM900A.read());// Display result to Serial Monitor
+}
+
+
+ void SendMessage()
+{
+  // Fuction used to send messages
+  Serial.println ("Sending Message");
+  SIM900A.println("AT+CMGF=1");// Sets the GSM Module in Text Mode
+  delay(1000);
+  Serial.println ("Set SMS Number");
+  SIM900A.println("AT+CMGS=\"+660917499494\"\r");// Mobile phone number to send message
+  delay(1000);
+  Serial.println ("Set SMS Content");
+  SIM900A.println("Test");// Messsage content
+  delay(100);
+  Serial.println ("Finish");
+  SIM900A.println((char)26);// ASCII code of CTRL+Z
+  delay(1000);
+  Serial.println ("Message has been sent");
+}
+
+
+ void RecieveMessage()
+{
+  // Fuction used to recieve messages
+  Serial.println ("SIM900A Membaca SMS");
+  delay (1000);
+  SIM900A.println("AT+CNMI=2,2,0,0,0");// AT Command to receive a live SMS
+  delay(1000);
+  Serial.write ("Unread Message done");
+}
+</pre>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div id="source3">
+        <center>
+            <h3>Pressure Transducer Sensor</h3>
+        </center>
+        <br>
+        <div class="row d-flex justify-content-center mt-1">
+                <div class="col-11 d-flex justify-content-center">
+                    <?prettify linenums=1?>
+  <pre class="prettyprint">
+const float OffSet = 0.483;
+float V, P;
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  V = analogRead(0)*5.00/1024;// Receive values from pressure sensors
+  P = (V-OffSet)*400;// Convert to kilopascal
+
+  Serial.print(V, 3);
+  Serial.println("V");// Display V value to Serial Monitor
+
+  Serial.print(P, 1);
+  Serial.println("KPa");// Display P value to Serial Monitor
+  Serial.println();
+
+  delay(500);
+}
+</pre>
+<br>
+                </div>
+            </div>
+        </div>
+        </div>
+        <br>
+        <br>
+    </div>
+</body>
+
+</html>
