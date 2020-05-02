@@ -218,65 +218,40 @@
                 <div class="col-11 d-flex justify-content-center">
                     <?prettify linenums=1?>
   <pre class="prettyprint">
-#include &lt;LiquidCrystal_I2C.h&gt;
 #include &lt;SoftwareSerial.h&gt;
-LiquidCrystal_I2C lcd(0x27,16,2);
-SoftwareSerial SIM900A(10,11);// TX|RX
-int hour=12,minute=0,second=0;
+SoftwareSerial SIM900A(10,11); // TX|RX
 int check=0,recall=0;
-const float OffSet=0.483;
-float V,P;
-void setup() {//Just a setting
-  lcd.begin();
-  Serial.begin(9600);// Setting the baud rate of Serial Monitor (Arduino)
-  SIM900A.begin(9600);// Setting the baud rate of GSM Module
-  lcd.backlight();
-  Serial.println("SIM900A Ready");
+float val;
+void setup() { //Just a setting
+  Serial.begin(9600); // Setting the baud rate of Serial Monitor (Arduino)
+  SIM900A.begin(9600); // Setting the baud rate of GSM Module
 }
 void loop() {
-  V=analogRead(0)*5.00/1024;// Receive values from pressure sensors
-  P=(V-OffSet)*400;// Convert to kilopascal
-  second++;
-  if (second>59){// Just a timer
-    minute++;
-    second=0;
-  }
-  if (minute>59){
-    hour++;
-    minute=0;
-  }
-  if (hour>23){
-    hour=0;
-  }
-  lcd.clear();// Display to LCD screen
-  lcd.print("TIME: ");
-  lcd.print(hour);
-  lcd.print(":");
-  lcd.print(minute);
-  lcd.print(":");
-  lcd.print(second);
-  lcd.setCursor(1,1);
-  lcd.print("WHITEWHALEWATCH");
-  Serial.print(P,1);
-  Serial.println(" KPa");
-  delay(990);
-  if (P>20.0){// Sends a message when the P over 20 kilopascal
+  val = (analogRead(A0)*5.0)/1024.0; // Receive values from pressure sensors
+  float pascal = 3.0*((float)val-0.45)*1000000.0; // Convert to pascal
+  float bar = pascal/10e5; // Convert to bar
+  float psi = bar*14.5038; // Convert to psi
+  Serial.print("Pressure = ");
+  Serial.print(bar);
+  Serial.print(" bars, ");
+  Serial.print ("psi ");
+  Serial.print (psi);
+  Serial.println();
+  delay(1000);
+  if (psi > 5.0){ // Sends a message when the P over 20 kilopascal
     SendMessage();
-    second++;
     check=1;
   }
-  while (check!=0){// Check if the child is still drowned
+  while (check != 0){ // Check if the child is still drowned
     recall++;
-    second++;
     Serial.println(recall);
-    delay(990);
+    delay(1000);
     if (recall==10){
       check=0;
       recall=0;
     }
   }
 }
-
 void SendMessage(){
   // Fuction used to send messages
   Serial.println("Sending Message");
@@ -292,6 +267,7 @@ void SendMessage(){
   SIM900A.println((char)26);// ASCII code of CTRL+Z
   delay(400);
   Serial.println("Message has been sent");
+}
 }
 </pre>
                 </div>
