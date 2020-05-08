@@ -359,23 +359,23 @@ void loop()
                     <?prettify linenums=1?>
   <pre class="prettyprint">
 const float OffSet = 0.483;
-float V, P;
+float val;
 void setup() {
   Serial.begin(9600);
 }
 
 void loop() {
-  V = analogRead(0)*5.00/1024;// Receive values from pressure sensors
-  P = (V-OffSet)*400;// Convert to kilopascal
-
-  Serial.print(V, 3);
-  Serial.println("V");// Display V value to Serial Monitor
-
-  Serial.print(P, 1);
-  Serial.println("KPa");// Display P value to Serial Monitor
+  val = (analogRead(A0)*5.0)/1024.0; // Receive values from pressure sensors
+  float pascal = 3.0*((float)val-0.45)*1000000.0; // Convert to pascal
+  float bar = pascal/10e5; // Convert to bar
+  float psi = bar*14.5038; // Convert to psi
+  Serial.print("Pressure = ");
+  Serial.print(bar);
+  Serial.print(" bars, ");
+  Serial.print("psi ");
+  Serial.print(psi);
   Serial.println();
-
-  delay(500);
+  delay(1000);
 }
 </pre>
 <br>
@@ -387,5 +387,4 @@ void loop() {
         <br>
         <br>
 </body>
-
 </html>
